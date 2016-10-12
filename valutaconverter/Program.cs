@@ -15,7 +15,9 @@ namespace valutaconverter
             string outputArg;
             if (args != null && args.Length == 3)
             {
-                // Vi har 3 argument! Då kan vi använda dem istället för att användaren ska mata in värden.
+                //Läser 3 argument från cmd och converterar första argumentet till double
+                //Där efter kan man använda antingen USD, EUR SEK eller 1, 2, 3 för inCurrency/utCurrency
+                //la även in an try/catch för att fixa en crash
                 try
                 {
                     argAmount = Convert.ToDouble(args[0]);
@@ -25,7 +27,6 @@ namespace valutaconverter
                 catch (Exception)
                 {
                     Console.WriteLine("Wops! Something went wrong!");
-                    Console.ReadKey();
                     throw;
                 }
 
