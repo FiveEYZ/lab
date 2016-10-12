@@ -197,11 +197,12 @@ namespace valutaconverter
                         Console.WriteLine("{0} {1} $", count, output);
                         if (outputAmount < 1.00)
                         {
-                            var centOutput = outputAmount;
+                            //flyttar decimal 2 steg för att kolla efter cent
+                            double cent = outputAmount * 100;
                             foreach (var output2 in usdCent)
                             {
-                                var count2 = (int)centOutput / output2;
-                                centOutput = centOutput % output2;
+                                int count2 = (int)Math.Ceiling(cent) / output2;
+                                cent = cent % output2;
                                 Console.WriteLine("{0} {1} Cent", count2, output2);
                             }
                             break;
@@ -392,11 +393,12 @@ namespace valutaconverter
                         Console.WriteLine("{0} {1} $", count, output);
                         if (outputAmount < 1.00)
                         {
-                            var centOutput = outputAmount;
+                            //flyttar decimal 2 steg för att kolla efter cent
+                            double cent = outputAmount * 100;
                             foreach (var output2 in usdCent)
                             {
-                                var count2 = (int)centOutput / output2;
-                                centOutput = centOutput % output2;
+                                int count2 = (int)Math.Ceiling(cent) / output2;
+                                cent = cent % output2;
                                 Console.WriteLine("{0} {1} Cent", count2, output2);
                             }
                             break;
